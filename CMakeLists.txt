@@ -28,7 +28,9 @@ find_package(NumPy REQUIRED)
 # set(Boost_USE_STATIC_LIBS ON)
 # set(Boost_USE_MULTITHREADED ON) 
 # set(Boost_USE_STATIC_RUNTIME ON)
-FIND_PACKAGE(Boost COMPONENTS python REQUIRED)
+
+# Find the correct Boost.python package depending on the python version
+FIND_PACKAGE(Boost COMPONENTS python${PYTHON_VERSION_MAJOR} REQUIRED)
 
 message( STATUS "found boost:"
   "\nINCLUDE: ${Boost_INCLUDE_DIRS}"
